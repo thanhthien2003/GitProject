@@ -1,6 +1,5 @@
-package Introduction_to_java;
+package introduction_to_java;
 
-import java.sql.SQLOutput;
 import java.util.Scanner;
 
 public class bai_2_chuyen_doi_so {

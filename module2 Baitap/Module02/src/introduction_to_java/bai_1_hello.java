@@ -1,4 +1,4 @@
-package Introduction_to_java;
+package introduction_to_java;
 
 import java.util.Scanner;
 
