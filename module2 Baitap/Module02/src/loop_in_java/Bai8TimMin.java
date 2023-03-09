@@ -10,15 +10,14 @@ public class Bai8TimMin {
         int n = sc.nextInt();
         int[] arr = new int[n];
         for (int i = 0; i < n; i++) {
-            Scanner scr = new Scanner(System.in);
             System.out.println("nhap phan tu thu " + (i + 1) + " cua mang");
-            int n1 = scr.nextInt();
+            int n1 = sc.nextInt();
             arr[i] = n1;
         }
         System.out.println(Arrays.toString(arr));
         int min = arr[0];
         for (int i = 0; i < arr.length; i++) {
-            if(min > arr[i]){
+            if (min > arr[i]) {
                 min = arr[i];
             }
         }
