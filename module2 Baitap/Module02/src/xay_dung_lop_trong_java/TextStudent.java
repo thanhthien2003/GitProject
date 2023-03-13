@@ -1,4 +1,4 @@
-package xay_dung_lop_chi_ghi_trong_java;
+package xay_dung_lop_trong_java;
 
 import java.util.Scanner;
 
