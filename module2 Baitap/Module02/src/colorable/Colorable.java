@@ -1,5 +1,5 @@
 package colorable;
 
 public interface Colorable {
-   void howToColor;
+   void howToColor();
 }
