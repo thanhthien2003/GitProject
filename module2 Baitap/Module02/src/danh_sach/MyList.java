@@ -22,7 +22,7 @@ public class MyList<E> {
         }
     }
 
-    public int size(){
+    public int size() {
         return size;
     }
 
@@ -83,16 +83,18 @@ public class MyList<E> {
         }
         return flag;
     }
-    public E get(int i){
-        if(i>=0 && i< element.length){
+
+    public E get(int i) {
+        if (i >= 0 && i < element.length) {
             return element[i];
         } else {
             return null;
         }
     }
-    public void clear(){
+
+    public void clear() {
         element = (E[]) new Object[DEFAULT_CAPACITY];
-        size=0;
+        size = 0;
     }
 }
 
