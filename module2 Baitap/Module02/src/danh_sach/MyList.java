@@ -54,7 +54,7 @@ public class MyList<E> {
         }
     }
 
-    public boolean contains(Object e) {
+    public boolean contains(E e) {
         boolean flag = false;
         for (int i = 0; i < element.length; i++) {
             if (element[i] == e) {
