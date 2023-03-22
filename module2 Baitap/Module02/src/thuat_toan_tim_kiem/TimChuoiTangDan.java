@@ -1,31 +1,24 @@
 package thuat_toan_tim_kiem;
 
-import java.util.LinkedList;
-import java.util.Scanner;
+import java.awt.image.ImageProducer;
+import java.util.*;
 
 public class TimChuoiTangDan {
     public static void main(String[] args) {
+        Map<String, Integer> map = new TreeMap<>();
         Scanner sc = new Scanner(System.in);
-        System.out.println("Nhập chuỗi:");
-        String string = sc.nextLine();
-        LinkedList<Character> max = new LinkedList<>();
-        for (int i = 0; i < string.length(); i++) {
-            LinkedList<Character> list = new LinkedList<>();
-            list.add(string.charAt(i));
-            for (int j = i + 1; j < string.length(); j++) {
-                if (string.charAt(j) > list.getLast()) {
-                    list.add(string.charAt(j));
-                }
-                if (list.size() > max.size()) {
-                    max.clear();
-                    max.addAll(list);
-                }
+        System.out.println("nhap vao 1 chuoi bat ky");
+        String str = sc.nextLine();
+        String[] arr = str.toLowerCase().split(" ");
+        for (String i : arr) {
+            if (map.containsKey(i)) {
+                map.put(i, map.get(i) + 1);
+            } else {
+                map.put(i, 1);
             }
-
         }
-        for (Character temp : max
-        ) {
-            System.out.print(temp);
+        for (String j : map.keySet()) {
+            System.out.println(j + "=" + map.get(j));
         }
     }
 }
