@@ -19,5 +19,6 @@ public class MyListTest {
         System.out.println(new1.get(2));
         new1.clear();
         System.out.println(Arrays.toString(new1.clone()));
+
     }
 }
