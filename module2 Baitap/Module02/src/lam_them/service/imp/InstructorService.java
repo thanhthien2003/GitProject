@@ -10,9 +10,10 @@ public class InstructorService implements IPerson {
     static {
         instructors.add(new Instructor());
     }
+
     @Override
     public void add() {
-
+    
     }
 
     @Override
@@ -22,11 +23,6 @@ public class InstructorService implements IPerson {
 
     @Override
     public void display() {
-
-    }
-
-    @Override
-    public void outService() {
 
     }
 }

@@ -11,22 +11,17 @@ public class StudentService implements IPerson {
         students.add(new Student());
     }
     @Override
-    public void add() {
+    public  void add() {
 
     }
 
     @Override
-    public void delete() {
+    public  void delete() {
 
     }
 
     @Override
-    public void display() {
-
-    }
-
-    @Override
-    public void outService() {
+    public  void display() {
 
     }
 }
