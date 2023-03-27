@@ -19,6 +19,8 @@ public class ProductService extends Product implements IServiceProduct{
         linkedList.add(product3);
     }
 
+    public Object find;
+
     Scanner sc = new Scanner(System.in);
     public Product createProduct(){
         System.out.println("nhap id moi");
