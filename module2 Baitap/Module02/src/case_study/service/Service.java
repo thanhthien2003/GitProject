@@ -1,6 +1,6 @@
 package case_study.service;
 
-public interface IServicePerson {
+public interface Service {
     void display();
     void add();
     void edit();
