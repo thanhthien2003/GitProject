@@ -1,17 +1,15 @@
 package case_study.models.facility;
 
-import case_study.models.facility.ClassFacility;
-
-public class House extends ClassFacility {
+public class House extends Facility {
     private int floor;
     private String roomStandard;
     public House() {
     }
 
-    public House(String serviceName, int areaUse, float price, int maxHuman, String styleRent,String roomStandard,int floor) {
-        super(serviceName, areaUse, price, maxHuman, styleRent);
-        this.roomStandard = roomStandard;
+    public House(String serviceName, int areaUse, float price, int maxHuman, String styleRent, String idService, int floor, String roomStandard) {
+        super(serviceName, areaUse, price, maxHuman, styleRent, idService);
         this.floor = floor;
+        this.roomStandard = roomStandard;
     }
 
     public int getFloor() {
@@ -40,6 +38,7 @@ public class House extends ClassFacility {
                 ", price=" + price +
                 ", maxHuman=" + maxHuman +
                 ", styleRent='" + styleRent + '\'' +
+                ", idService='" + idService + '\'' +
                 '}';
     }
 }

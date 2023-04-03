@@ -1,26 +1,24 @@
 package case_study.models.facility;
 
-import case_study.models.facility.ClassFacility;
-
-public class Villa extends ClassFacility {
-    private int areaPool;
+public class Villa extends Facility {
+    private float areaPool;
     private int floor;
     private String roomStandard;
     public Villa() {
     }
 
-    public Villa(String serviceName, int areaUse, float price, int maxHuman, String styleRent,int areaPool,int floor,String roomStandard) {
-        super(serviceName, areaUse, price, maxHuman, styleRent);
+    public Villa(String serviceName, int areaUse, float price, int maxHuman, String styleRent, String idService, float areaPool, int floor, String roomStandard) {
+        super(serviceName, areaUse, price, maxHuman, styleRent, idService);
         this.areaPool = areaPool;
         this.floor = floor;
         this.roomStandard = roomStandard;
     }
 
-    public int getAreaPool() {
+    public float getAreaPool() {
         return areaPool;
     }
 
-    public void setAreaPool(int areaPool) {
+    public void setAreaPool(float areaPool) {
         this.areaPool = areaPool;
     }
 
@@ -43,10 +41,10 @@ public class Villa extends ClassFacility {
     @Override
     public String toString() {
         return "Villa{" +
-                "areaPool=" + areaPool +
+                "serviceName=" + serviceName +
                 ", floor=" + floor +
                 ", roomStandard='" + roomStandard + '\'' +
-                ", serviceName='" + serviceName + '\'' +
+                ", areaPool=" + areaPool + '\'' +
                 ", areaUse=" + areaUse +
                 ", price=" + price +
                 ", maxHuman=" + maxHuman +

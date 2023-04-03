@@ -1,21 +1,31 @@
 package case_study.models.facility;
 
-public abstract class ClassFacility {
+public abstract class Facility {
     protected String  serviceName;
     protected int areaUse;
     protected float price;
     protected int maxHuman;
     protected String styleRent;
+    protected String idService;
 
-    public ClassFacility() {
+    public Facility() {
     }
 
-    public ClassFacility(String serviceName, int areaUse, float price, int maxHuman, String styleRent) {
+    public Facility(String serviceName, int areaUse, float price, int maxHuman, String styleRent,String idService) {
         this.serviceName = serviceName;
         this.areaUse = areaUse;
         this.price = price;
         this.maxHuman = maxHuman;
         this.styleRent = styleRent;
+        this.idService = idService;
+    }
+
+    public String getIdService() {
+        return idService;
+    }
+
+    public void setIdService(String idService) {
+        this.idService = idService;
     }
 
     public String getServiceName() {
@@ -60,12 +70,13 @@ public abstract class ClassFacility {
 
     @Override
     public String toString() {
-        return "ClassFacility{" +
+        return "Facility{" +
                 "serviceName='" + serviceName + '\'' +
                 ", areaUse=" + areaUse +
                 ", price=" + price +
                 ", maxHuman=" + maxHuman +
                 ", styleRent='" + styleRent + '\'' +
+                ", idService='" + idService + '\'' +
                 '}';
     }
 }

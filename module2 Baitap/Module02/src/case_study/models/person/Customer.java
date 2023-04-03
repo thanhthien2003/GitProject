@@ -1,6 +1,6 @@
 package case_study.models.person;
 
-public class Customer extends Person{
+public class Customer extends Person {
     private String typeCustomer;
     private String address;
 
@@ -34,14 +34,18 @@ public class Customer extends Person{
     @Override
     public String toString() {
         return "Customer{" + ", id=" + id + '\'' +
-                ", address='" + address + '\'' +
-                "typeCustomer='" + typeCustomer +
-                ", name='" + name + '\'' +
-                ", date='" + date + '\'' +
-                ", gender='" + gender + '\'' +
-                ", idCountry=" + idCountry +
-                ", phoneNumber=" + phoneNumber +
-                ", email='" + email + '\'' +
+                ", address='" + name + '\'' +
+                "typeCustomer='" + date +
+                ", name='" + gender + '\'' +
+                ", date='" + idCountry + '\'' +
+                ", gender='" + phoneNumber + '\'' +
+                ", idCountry=" + email +
+                ", phoneNumber=" + typeCustomer +
+                ", email='" + address + '\'' +
                 '}';
+    }
+
+    public String getInforToCustomer() {
+        return id + "," + name + "," + date + "," + gender + "," + idCountry + "," + phoneNumber + "," + email + "," + typeCustomer + "," + address;
     }
 }

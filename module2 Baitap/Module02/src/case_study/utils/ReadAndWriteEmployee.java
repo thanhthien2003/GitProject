@@ -7,9 +7,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ReadAndWriteEmployee {
-    public static List<Employee> readFile(String pathFile){
-        List<Employee> stringList = new ArrayList<>();
-        File file =new File(pathFile);
+    private static String employeeFile = "src\\case_study\\data\\employee.csv";
+    public static List<Employee> readFile(){
+        List<Employee> employeeList = new ArrayList<>();
+        File file =new File(employeeFile);
         FileReader fileReader =null;
         BufferedReader bufferedReader = null;
         try {
@@ -18,8 +19,8 @@ public class ReadAndWriteEmployee {
             String line = null;
             while((line=bufferedReader.readLine()) != null){
                 String [] data = line.split(",");
-                stringList.add(new Employee(Integer.parseInt(data[0]),data[1],data[2],data[3],Integer.parseInt(data[4]),
-                                Integer.parseInt(data[5]),data[6],data[7],data[8],Integer.parseInt(data[9])));
+                employeeList.add(new Employee(Integer.parseInt(data[0]),data[1],data[2],data[3],Integer.parseInt(data[4]),
+                               Integer.parseInt(data[5]),data[6],data[7],data[8],Float.parseFloat(data[9])));
             }
             bufferedReader.close();
             fileReader.close();
@@ -28,10 +29,10 @@ public class ReadAndWriteEmployee {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return stringList;
+        return employeeList;
     }
-    public static void writeFile(String pathFile,List<Employee> employeeList,boolean flag){
-        File file = new File(pathFile);
+    public static void writeFile(List<Employee> employeeList,boolean flag){
+        File file = new File(employeeFile);
         FileWriter fileWriter = null;
         BufferedWriter bufferedWriter = null;
         try {

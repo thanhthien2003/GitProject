@@ -14,9 +14,16 @@ import case_study.service.promotion.PromotionService;
 import java.util.Scanner;
 
 public class FuramaControler {
+    private static Scanner sc = new Scanner(System.in);
+    private static IEmployeeService serviceEmployee = new EmployeeService();
+    private static ICustomerService serviceCustomer = new CustomerService();
+    private static IFacilityService facilityService = new FacilityService();
+    private static IBookingService bookingService = new BookingService();
+    private static IPromotionService promotionService = new PromotionService();
+
     public static void displayMainMenu(){
-        Scanner sc = new Scanner(System.in);
         boolean flag = true;
+        System.out.println("-----------FURAMA HOTEL------------");
         do {
             System.out.println("1. Employee Management" +
                     "\n 2. Customer Management" +
@@ -46,19 +53,21 @@ public class FuramaControler {
                     System.out.println("Promotion Management");
                     promotionManagement();
                     break;
-                default:
+                case 6:
                     flag = false;
                     System.out.println("Thank you");
                     break;
+                default:
+                    System.out.println("Enter the wrong format , please re-enter just number");
             }
         } while(flag);
     }
     public static void displayEmployee(){
-        IEmployeeService serviceEmployee = new EmployeeService();
-    Scanner sc = new Scanner(System.in);
+
     boolean flag = true;
     do {
-        System.out.println("1.Display list employees" +
+        System.out.println("YOU CHOOSE EMPLOYEES" +
+                "\n 1.Display list employees" +
                 "\n 2.Add new employee" +
                 "\n 3.Edit employee" +
                 "\n 4.Return main menu");
@@ -77,17 +86,17 @@ public class FuramaControler {
                 flag = false;
                 break;
             default:
-                System.out.println("nhập sai lựa chọn mời nhập ");
+                System.out.println("entered wrong option please re-enter");
                 break;
         }
     } while (flag);
     }
     public static void displayCustomer(){
-       ICustomerService serviceCustomer = new CustomerService();
-        Scanner sc = new Scanner(System.in);
+
         boolean flag = true;
         do {
-            System.out.println("1.Display list customer" +
+            System.out.println("YOU CHOOSE CUSTOMER" +
+                    "\n1.Display list customer" +
                     "\n 2.Add new customer" +
                     "\n 3.Edit customer" +
                     "\n 4.Return main menu");
@@ -106,17 +115,17 @@ public class FuramaControler {
                     flag = false;
                     break;
                 default:
-                    System.out.println("mời nhập lại");
+                    System.out.println("entered wrong option please re-enter");
                     break;
             }
         } while (flag);
     }
     public static void facilityManagement(){
-        Scanner sc =new Scanner(System.in);
-        IFacilityService facilityService = new FacilityService();
+
         boolean flag = true;
         do {
-            System.out.println("1.Display list facility" +
+            System.out.println("YOU CHOOSE FACILITY" +
+                    "\n 1.Display list facility" +
                     "\n 2.Add new facility" +
                     "\n 3.Display list facility maintenance" +
                     "\n 4.Return main menu");
@@ -135,17 +144,17 @@ public class FuramaControler {
                     flag = false;
                     break;
                 default:
-                    System.out.println("mời nhập lại");
+                    System.out.println("entered wrong option please re-enter");
                     break;
             }
         } while (flag);
     }
     public static void bookingManagement(){
-        IBookingService bookingService = new BookingService();
-        Scanner sc = new Scanner(System.in);
+
         boolean flag = true;
         do {
-            System.out.println("1.Add new booking" +
+            System.out.println("YOU CHOOSE BOOKING" +
+                    "\n 1.Add new booking" +
                     "\n 2.Display list booking" +
                     "\n 3.Create new contract" +
                     "\n 4.Display list contracts" +
@@ -172,17 +181,16 @@ public class FuramaControler {
                     flag = false;
                     break;
                 default:
-                    System.out.println("mời nhập lại");
+                    System.out.println("entered wrong option please re-enter");
                     break;
             }
         } while (flag);
     }
     public static void promotionManagement(){
-        IPromotionService promotionService = new PromotionService();
-        Scanner sc = new Scanner(System.in);
         boolean flag = true;
         do {
-            System.out.println("1.Display list customers use service" +
+            System.out.println("YOU CHOOSE PROMOTION" +
+                    "\n 1.Display list customers use service" +
                     "\n 2.Display list customers get voucher" +
                     "\n 3.Return main menu");
             int choose = Integer.parseInt(sc.nextLine());
@@ -197,7 +205,7 @@ public class FuramaControler {
                     flag = false;
                     break;
                 default:
-                    System.out.println("mời nhập lại");
+                    System.out.println("entered wrong option please re-enter");
                     break;
             }
         } while (flag);

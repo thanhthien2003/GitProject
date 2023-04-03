@@ -42,20 +42,21 @@ public class Employee extends Person{
     @Override
     public String toString() {
         return "Employee{" +
-                ", id=" + id + '\'' +
-                ", address='" + address + '\'' +
-                ", wage='" + wage + '\'' +
-                "lever='" + lever +
-                ", name='" + name + '\'' +
-                ", date='" + date + '\'' +
-                ", gender='" + gender + '\'' +
-                ", idCountry=" + idCountry +
-                ", phoneNumber=" + phoneNumber +
-                ", email='" + email + '\'' +
+                "id='" + id + '\'' +
+                ", address='" + name + '\'' +
+                ", wage=" + date +
+                ", lever=" + gender +
+                ", name='" + idCountry + '\'' +
+                ", date='" + phoneNumber + '\'' +
+                ", gender='" + email + '\'' +
+                ", idCountry=" + lever +
+                ", phoneNumber=" + address +
+                ", email='" + wage + '\'' +
                 '}';
     }
+
     public String getInforToEmployee(){
-        return "id= " +id + ",address= " + address +",wage= " + wage +",lever= "+ lever +",name= " + name +",date= " + date +
-                ",gender= "+ gender +",idCountry= " + idCountry +",phoneNumber= " + phoneNumber +",email= " + email;
+        return id + "," + name +"," + date +","+ gender +"," + idCountry +"," + phoneNumber +
+                ","+ email +"," + lever +"," + address +"," + wage;
     }
 }
