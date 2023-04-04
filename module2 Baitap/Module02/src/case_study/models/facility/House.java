@@ -41,4 +41,8 @@ public class House extends Facility {
                 ", idService='" + idService + '\'' +
                 '}';
     }
+    public String getInfoHouse(){
+        return serviceName + "," + areaUse + "," + price + "," + maxHuman + "," + styleRent + "," + idService + "," + floor + "," + roomStandard;
+
+    }
 }

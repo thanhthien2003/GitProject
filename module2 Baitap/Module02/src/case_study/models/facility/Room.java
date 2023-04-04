@@ -29,4 +29,7 @@ public class Room  extends Facility {
                 ", styleRent='" + styleRent + '\'' +
                 '}';
     }
+    public String getInforRoom(){
+        return serviceName + "," + areaUse + "," + price + "," + maxHuman + "," + styleRent + "," + idService + "," + freeService;
+    }
 }

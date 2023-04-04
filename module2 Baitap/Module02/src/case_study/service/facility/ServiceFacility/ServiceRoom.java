@@ -1,8 +1,11 @@
 package case_study.service.facility.ServiceFacility;
 
 import case_study.models.facility.Room;
+import case_study.repository.room_repo.IRoomRepo;
+import case_study.repository.room_repo.RoomRepo;
 
 import java.util.LinkedHashMap;
+import java.util.Map;
 import java.util.Scanner;
 
 public class ServiceRoom implements IRoom{
@@ -10,6 +13,7 @@ public class ServiceRoom implements IRoom{
     static Scanner sc = new Scanner(System.in);
     private String regEx = "^^[A-Z][a-z]+$";
     private String regExIdRoom = "^SVRO-[0-9]{4}$";
+    private IRoomRepo roomRepo = new RoomRepo();
 
     @Override
     public Room addRoom() {
@@ -42,7 +46,7 @@ public class ServiceRoom implements IRoom{
             idService = sc.nextLine();
             flag = idService.matches(regExIdRoom);
             if (!flag){
-                System.out.println("Enter the wrong format,Service code must be in the correct format: SVHO-YYYY, where YYYY is numbers from 0-9");
+                System.out.println("Enter the wrong format,Service code must be in the correct format: SVRO-YYYY, where YYYY is numbers from 0-9");
             }
         }while(!flag);
         int maxHuman=0;
@@ -61,6 +65,8 @@ public class ServiceRoom implements IRoom{
         System.out.println("enter free service ");
         String freeService = sc.nextLine();
         Room room = new Room(serviceName, areaUse, price, maxHuman,styleRent,idService,freeService);
+        Integer value =0;
+        roomRepo.add(room,value);
         return room;
     }
 
@@ -70,7 +76,13 @@ public class ServiceRoom implements IRoom{
     }
 
     @Override
+    public void saveToFileRoom(Map<Room, Integer> roomIntegerMap) {
+        roomRepo.saveToFileRoom(roomIntegerMap);
+    }
+
+    @Override
     public String toString() {
         return super.toString();
     }
 }
+

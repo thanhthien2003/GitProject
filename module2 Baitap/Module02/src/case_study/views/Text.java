@@ -4,6 +4,10 @@ import case_study.controlers.FuramaControler;
 
 public class Text {
     public static void main(String[] args) {
-        FuramaControler.displayMainMenu();
+        try {
+            FuramaControler.displayMainMenu();
+        } catch (Exception e){
+            System.out.println("ERROR");
+        }
     }
 }

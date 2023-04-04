@@ -8,9 +8,10 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class ReadAndWriteCustomer {
-    private static String customerFile = "src\\case_study\\service\\customer\\CustomerService.java";
-    static List<Customer> customerList = new ArrayList<>();
+    private static String customerFile = "src\\case_study\\data\\customer.csv";
+
     public static List<Customer> readFileCustomer(){
+        List<Customer> customerList = new ArrayList<>();
         File file = new File(customerFile);
         FileReader fileReader = null;
         BufferedReader bufferedReader = null;

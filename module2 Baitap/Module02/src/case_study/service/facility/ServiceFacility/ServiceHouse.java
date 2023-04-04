@@ -2,9 +2,12 @@ package case_study.service.facility.ServiceFacility;
 
 import case_study.models.facility.Facility;
 import case_study.models.facility.House;
+import case_study.repository.house_repo.HouseRepo;
+import case_study.repository.house_repo.IHouseRepo;
 import case_study.service.facility.FacilityService;
 
 import java.util.LinkedHashMap;
+import java.util.Map;
 import java.util.Scanner;
 
 public class ServiceHouse implements IHouse{
@@ -13,6 +16,7 @@ public class ServiceHouse implements IHouse{
     static Scanner sc = new Scanner(System.in);
     private String regExHouse ="^[A-Z][a-z]+$";
     private String regExIdHouse = "^SVHO-[0-9]{4}$";
+   private IHouseRepo houseRepo = new HouseRepo();
     @Override
     public House addHouse() {
         boolean flag = false;
@@ -82,15 +86,23 @@ public class ServiceHouse implements IHouse{
             }
         } while (!flag);
         house = new House(serviceName, areaUse, price, maxHuman, styleRent,idService,floor,roomStandard);
+        Integer value = 0;
+        houseRepo.add(house,value);
         return house;
     }
 
     @Override
     public void deleteHouse() {
-
     }
+
+    @Override
+    public void saveToFileHouse(Map<House,Integer> houseStringMap) {
+        houseRepo.saveToFileHouse(houseStringMap);
+    }
+
     @Override
     public String toString() {
         return super.toString();
     }
+
 }

@@ -1,15 +1,17 @@
 package case_study.service.facility.ServiceFacility;
 
 import case_study.models.facility.Villa;
+import case_study.repository.vila_repo.IVilaRepo;
+import case_study.repository.vila_repo.VilaRepo;
 import case_study.service.facility.FacilityService;
 
-import java.util.LinkedHashMap;
-import java.util.Scanner;
+import java.util.*;
 
 public class ServiceVilla implements IVilla{
     static Scanner sc = new Scanner(System.in);
     private String regExVila = "^[A-Z][a-z]+$";
     private String regExIdVila = "^SVVL-[0-9]{4}$";
+   static IVilaRepo vilaRepo = new VilaRepo();
 
     public Villa addVilla() {
         boolean flag;
@@ -75,7 +77,7 @@ public class ServiceVilla implements IVilla{
             idService = sc.nextLine();
             flag = idService.matches(regExIdVila);
             if (!flag){
-                System.out.println("Enter the wrong format,Service code must be in the correct format: SVHO-YYYY, where YYYY is numbers from 0-9");
+                System.out.println("Enter the wrong format,Service code must be in the correct format: SVVL-YYYY, where YYYY is numbers from 0-9");
             }
         }while(!flag);
         String roomStandard;
@@ -88,12 +90,20 @@ public class ServiceVilla implements IVilla{
             }
         } while (!flag);
         Villa villa = new Villa(serviceName, areaUse, price, maxHuman, styleRent,idService,areaPool,floor,roomStandard);
+        Integer value = 0;
+        vilaRepo.add(villa,value);
         return villa;
     }
 
     @Override
     public void deleteVila() {
 
+    }
+
+
+    @Override
+    public void saveToFileVilla(Map<Villa,Integer>villaIntegerMap) {
+        vilaRepo.saveToFileVilla(villaIntegerMap);
     }
 
     @Override
