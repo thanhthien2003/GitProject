@@ -25,7 +25,7 @@ public class VilaRepo implements IVilaRepo{
         try {
             FileWriter fileWriter = new FileWriter(file,false);
             for (Villa v:villaIntegerMap.keySet()) {
-                fileWriter.write(v.getInforVilla() + villaIntegerMap.get(v));
+                fileWriter.write(v.getInforVilla() +","+ villaIntegerMap.get(v));
                 fileWriter.write("\n");
             }
             fileWriter.close();

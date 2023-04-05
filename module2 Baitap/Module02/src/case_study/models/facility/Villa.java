@@ -54,6 +54,7 @@ public class Villa extends Facility {
     }
 
     public String getInforVilla(){
-        return serviceName + areaUse + price + maxHuman + styleRent + idService + areaPool + floor + roomStandard;
+        return serviceName +"," + areaUse +"," + price +"," + maxHuman +"," + styleRent+"," + idService+"," + areaPool+
+                "," + floor+"," + roomStandard;
     }
 }

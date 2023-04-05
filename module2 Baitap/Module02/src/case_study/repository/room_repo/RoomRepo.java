@@ -11,16 +11,16 @@ import java.io.IOException;
 import java.util.Map;
 
 public class RoomRepo implements IRoomRepo {
-    private static final String PATH_FILE_HOUSE = "src\\case_study\\models\\facility\\Room.java";
+    private static final String PATH_FILE_ROOM = "src\\case_study\\data\\room.csv";
     @Override
     public void add(Room room,Integer value) {
         String text = room.getInforRoom();
-        ReadAndWriteFacility.writeFile(PATH_FILE_HOUSE,text,true);
+        ReadAndWriteFacility.writeFile(PATH_FILE_ROOM,text,true);
     }
 
     @Override
     public void saveToFileRoom(Map<Room, Integer> roomIntegerMap) {
-        File file = new File(PATH_FILE_HOUSE);
+        File file = new File(PATH_FILE_ROOM);
         try {
             FileWriter fileWriter = new FileWriter(file,false);
             for (Room h:roomIntegerMap.keySet()) {

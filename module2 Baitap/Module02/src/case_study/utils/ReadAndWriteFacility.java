@@ -31,10 +31,11 @@ public class ReadAndWriteFacility {
         FileWriter fileWriter= null;
         BufferedWriter bufferedWriter =null;
         try {
-            fileWriter = new FileWriter(file);
+            fileWriter = new FileWriter(file,append);
             bufferedWriter = new BufferedWriter(fileWriter);
             bufferedWriter.write(text);
             bufferedWriter.newLine();
+            bufferedWriter.close();
         } catch (IOException e) {
             e.printStackTrace();
         } try {

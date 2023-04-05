@@ -79,4 +79,8 @@ public class Booking {
                 ", styleService='" + styleService + '\'' +
                 '}';
     }
+//    int idBooking, int dayStart, int dayEnd, int idCustomer, String nameService, String styleService
+    public String getInforBooking(){
+        return idBooking + "," + dayStart + "," + dayEnd + "," + idCustomer + "," + nameService + "," + styleService;
+    }
 }
