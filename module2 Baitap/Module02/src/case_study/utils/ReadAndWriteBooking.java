@@ -25,7 +25,7 @@ public class ReadAndWriteBooking {
         }
         }
         public static Set<String> readFileBooking(){
-        Set<String> bookingSet = new HashSet<>();
+        Set<String> bookingSet = new TreeSet<>();
         File file = new File(PATH_FILE_BOOKING);
             FileReader fileReader = null;
             BufferedReader bufferedReader = null;

@@ -12,7 +12,6 @@ import java.util.Map;
 import java.util.Scanner;
 
 public class FacilityService implements IFacilityService {
-    public static LinkedHashMap<Facility,Integer> facilityIntegerLinkedHashMap = new LinkedHashMap<>();
     static Scanner sc = new Scanner(System.in);
     private IVilla villaService = new ServiceVilla();
     private IHouse houseService = new ServiceHouse();
@@ -24,9 +23,9 @@ public class FacilityService implements IFacilityService {
         Villa villa = new Villa("Villa",20,20000,2,"oneyear","SVVL-1000",500,50,"Good");
         Room room = new Room("Room",40,50,2,"Ok","okkii","one night");
         House house =new House("House",60,40,2,"ok","SVHO-0303",4,"Good");
-        facilityIntegerLinkedHashMap.put(villa,6);
-        facilityIntegerLinkedHashMap.put(room,6);
-        facilityIntegerLinkedHashMap.put(house,6);
+        villaIntegerMap.put(villa,6);
+        roomIntegerMap.put(room,6);
+        houseStringMap.put(house,6);
     }
     @Override
     public void displayFacility() {
@@ -43,32 +42,20 @@ public class FacilityService implements IFacilityService {
              switch (choose){
                  case "1":
                      System.out.println("THIS IS LIST VILA");
-                     for (Facility f:facilityIntegerLinkedHashMap.keySet()) {
-                         if (f instanceof Villa) {
-                             System.out.println(f + "" + facilityIntegerLinkedHashMap.get(f));
-                             villaIntegerMap.put((Villa) f,facilityIntegerLinkedHashMap.get(f));
-                             }
-                         }
-                     villaService.saveToFileVilla(villaIntegerMap);
+                     for (Villa v:villaIntegerMap.keySet()) {
+                         System.out.println(v +"," + villaIntegerMap.get(v));
+                     }
                      break;
                  case "2":
                      System.out.println("THIS IS LIST HOUSE");
-                     for (Facility f:facilityIntegerLinkedHashMap.keySet()) {
-                         if (f instanceof House) {
-                             System.out.println(f + "" + facilityIntegerLinkedHashMap.get(f));
-                             houseStringMap.put((House) f,facilityIntegerLinkedHashMap.get(f));
-                         }
-                         houseService.saveToFileHouse(houseStringMap);
+                     for (House h:houseStringMap.keySet()) {
+                         System.out.println(h + "," + houseStringMap.get(h));
                      }
                      break;
                  case "3":
                      System.out.println("THIS IS LIST ROOM");
-                     for (Facility f:facilityIntegerLinkedHashMap.keySet()) {
-                         if (f instanceof Room) {
-                             System.out.println(f + "" + facilityIntegerLinkedHashMap.get(f));
-                             roomIntegerMap.put((Room) f,facilityIntegerLinkedHashMap.get(f));
-                         }
-                         roomService.saveToFileRoom(roomIntegerMap);
+                     for (Room r:roomIntegerMap.keySet()) {
+                         System.out.println(r + "," + roomIntegerMap.get(r));
                      }
                      break;
                  case "4":
@@ -148,11 +135,8 @@ public class FacilityService implements IFacilityService {
                 case 1:
                    Room room1= room.addRoom();
                    if (room1 != null) {
-                       facilityIntegerLinkedHashMap.put(room1, 0);
-                       for (Facility f:facilityIntegerLinkedHashMap.keySet()) {
-                           if(f instanceof Room){
-                           }
-                       }
+                       roomIntegerMap.put(room1, 0);
+                       roomService.saveToFileRoom(roomIntegerMap);
                    } else {
                        System.out.println("YOUR ENTER NO EXIST , PLEASE RE-ENTER");
                    }
@@ -180,7 +164,8 @@ public class FacilityService implements IFacilityService {
                 case 1:
                 Villa villa1 = villa.addVilla();
                 if (villa1 != null) {
-                    facilityIntegerLinkedHashMap.put(villa1, 0);
+                    villaIntegerMap.put(villa1, 0);
+                    villaService.saveToFileVilla(villaIntegerMap);
                 } else {
                     System.out.println("YOUR ENTER NO EXIST , PLEASE RE-ENTER");
                 }
@@ -211,7 +196,8 @@ public class FacilityService implements IFacilityService {
                 case 1:
                    House house1 = house.addHouse();
                    if (house1 != null) {
-                       facilityIntegerLinkedHashMap.put(house1, 0);
+                       houseStringMap.put(house1, 0);
+                       houseService.saveToFileHouse(houseStringMap);
                    } else {
                        System.out.println("YOUR ENTER NO EXIST , PLEASE RE-ENTER");
                    }
@@ -225,4 +211,18 @@ public class FacilityService implements IFacilityService {
             }
         } while (flag);
     }
-}
+    public void displayFacilityAll(){
+        System.out.println("THIS IS LIST VILA");
+        for (Villa v:villaIntegerMap.keySet()) {
+            System.out.println(v +"," + villaIntegerMap.get(v));
+        }
+        System.out.println("THIS IS LIST HOUSE");
+        for (House h:houseStringMap.keySet()) {
+            System.out.println(h + "," + houseStringMap.get(h));
+        }
+        System.out.println("THIS IS LIST ROOM");
+        for (Room r:roomIntegerMap.keySet()) {
+            System.out.println(r + "," + roomIntegerMap.get(r));
+        }
+        }
+    }

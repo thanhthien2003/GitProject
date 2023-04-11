@@ -15,7 +15,7 @@ public class EmployeeService implements IEmployeeService {
     static Employee employee = new Employee();
     static Scanner sc = new Scanner(System.in);
     private String regExDate = "^(0[1-9]||([0-2][0-9])||3[0-1])\\/(([0][0-9])||1[0-2])\\/((19((2[4-9])||([3-9][0-9])))||200[0-5])$";
-    IEmployeeRepository employeeRepository = new EmployeeRepository();
+    static IEmployeeRepository employeeRepository = new EmployeeRepository();
 
     @Override
     public void display() {

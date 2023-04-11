@@ -11,7 +11,7 @@ import java.util.Map;
 import java.util.Scanner;
 
 public class ServiceHouse implements IHouse{
-//    String serviceName, int areaUse, float price, int maxHuman, String styleRent,String roomStandard,int floor
+
     House house = new House();
     static Scanner sc = new Scanner(System.in);
     private String regExHouse ="^[A-Z][a-z]+$";

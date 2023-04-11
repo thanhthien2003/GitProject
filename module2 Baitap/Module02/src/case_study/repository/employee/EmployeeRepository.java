@@ -8,10 +8,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class EmployeeRepository implements  IEmployeeRepository{
-    List<Employee> employeeList = new ArrayList<>();
+    static List<Employee> employeeList = ReadAndWriteEmployee.readFile();
     @Override
     public List<Employee> displayEmployee() {
-        employeeList = ReadAndWriteEmployee.readFile();
         return employeeList;
     }
 

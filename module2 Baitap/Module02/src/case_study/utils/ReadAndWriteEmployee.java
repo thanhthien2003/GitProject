@@ -7,10 +7,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ReadAndWriteEmployee {
-    private static String employeeFile = "src\\case_study\\data\\employee.csv";
+    static final String EMPLOYEE_FILE = "src\\case_study\\data\\employee.csv";
     public static List<Employee> readFile(){
         List<Employee> employeeList = new ArrayList<>();
-        File file =new File(employeeFile);
+        File file =new File(EMPLOYEE_FILE);
         FileReader fileReader =null;
         BufferedReader bufferedReader = null;
         try {
@@ -32,7 +32,7 @@ public class ReadAndWriteEmployee {
         return employeeList;
     }
     public static void writeFile(List<Employee> employeeList,boolean flag){
-        File file = new File(employeeFile);
+        File file = new File(EMPLOYEE_FILE);
         FileWriter fileWriter = null;
         BufferedWriter bufferedWriter = null;
         try {
