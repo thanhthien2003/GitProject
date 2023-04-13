@@ -7,7 +7,6 @@ import java.util.Scanner;
 
 public class MainMenu {
     public static void display() {
-
         Scanner sc = new Scanner(System.in);
         boolean flag;
         int menu;
@@ -21,10 +20,10 @@ public class MainMenu {
             System.out.println();
             switch (menu) {
                 case 1:
-                    MainMenu.displayStudent();
+                    MainMenu.serviceStudent();
                     break;
                 case 2:
-                    MainMenu.displayInstructor();
+                    MainMenu.serviceInstructor();
                     break;
                 case 3:
                     flag = false;
@@ -35,7 +34,7 @@ public class MainMenu {
         } while (flag);
     }
 
-    public static void displayStudent() {
+    public static void serviceStudent() {
         StudentService studentService = new StudentService();
         Scanner sc = new Scanner(System.in);
         int menu;
@@ -70,7 +69,7 @@ public class MainMenu {
         } while (flag);
     }
 
-    public static void displayInstructor() {
+    public static void serviceInstructor() {
         InstructorService instructorService = new InstructorService();
         Scanner sc = new Scanner(System.in);
         int menu;
@@ -79,7 +78,7 @@ public class MainMenu {
             flag = true;
             System.out.println("Lựa chọn các tác vụ để làm việc với danh sách giảng  \n" +
                     "1.Thêm mới giảng viên \n" +
-                    "2.Xóa học sinh \n" +
+                    "2.Xóa giảng viên \n" +
                     "3.Xem danh sách giảng viên \n" +
                     "4.Thoát \n");
             menu = sc.nextInt();

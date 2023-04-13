@@ -1,6 +1,6 @@
 package lam_them.service;
 
-public interface IPerson {
+public interface IPersonService {
     void add();
 
     void delete();

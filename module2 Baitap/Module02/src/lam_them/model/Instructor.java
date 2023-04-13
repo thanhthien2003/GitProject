@@ -1,6 +1,6 @@
 package lam_them.model;
 
-public class Instructor extends Person{
+public class Instructor extends Person {
     private String specialize;
 
     public Instructor() {
@@ -21,6 +21,12 @@ public class Instructor extends Person{
 
     @Override
     public String toString() {
-        return super.toString();
+        return "Instructor{" +
+                ", id=" + id +
+                ", name='" + name + '\'' +
+                ", date='" + date + '\'' +
+                ", gender='" + gender + '\'' +
+                "specialize='" + specialize + '\'' +
+                '}';
     }
 }

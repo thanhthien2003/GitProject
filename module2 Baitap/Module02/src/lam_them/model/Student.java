@@ -1,6 +1,6 @@
 package lam_them.model;
 
-public class Student extends Person{
+public class Student extends Person {
     private String classes;
     private int point;
 

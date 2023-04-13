@@ -1,6 +1,6 @@
 package lam_them.model;
 
-public class Person {
+public abstract class Person {
     protected int id;
     protected String name;
     protected String date;
