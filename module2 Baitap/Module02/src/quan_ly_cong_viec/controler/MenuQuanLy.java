@@ -1,12 +1,14 @@
 package quan_ly_cong_viec.controler;
 
 import quan_ly_cong_viec.service.IServiceChiTieu;
+import quan_ly_cong_viec.service.IdNotFoundException;
 import quan_ly_cong_viec.service.ServiceChiTieu;
+import quan_ly_cong_viec.service.UniqueIDException;
 
 import java.util.Scanner;
 
 public class MenuQuanLy {
-    public static void menuQuanLy() {
+    public static void menuQuanLy() throws UniqueIDException, IdNotFoundException {
         Scanner sc = new Scanner(System.in);
         IServiceChiTieu serviceChiTieu = new ServiceChiTieu();
         System.out.println("----------Quan ly cong viec---------");
@@ -29,11 +31,27 @@ public class MenuQuanLy {
                     flag = true;
                     break;
                 case "2":
-                    serviceChiTieu.add();
+                    boolean flag2 = true;
+                    do {
+                        try {
+                            serviceChiTieu.add();
+                        } catch (UniqueIDException e) {
+                            System.out.println(e);
+                            flag2 = false;
+                        }
+                    }while (!flag2);
                     flag = true;
                     break;
                 case "3":
-                    serviceChiTieu.delete();
+                    boolean flag1=true;
+                    do {
+                        try {
+                            serviceChiTieu.delete();
+                        } catch (IdNotFoundException e) {
+                            flag1 = false;
+                            System.out.println(e);
+                        }
+                    }while (!flag1);
                     flag = true;
                     break;
                 case "4":

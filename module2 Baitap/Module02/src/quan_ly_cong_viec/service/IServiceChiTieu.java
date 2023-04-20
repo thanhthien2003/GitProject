@@ -2,8 +2,8 @@ package quan_ly_cong_viec.service;
 
 public interface IServiceChiTieu {
     void display();
-    void add();
-    void delete();
+    void add() throws UniqueIDException;
+    void delete() throws IdNotFoundException;
     void edit();
     void searchById();
     void searchByName();

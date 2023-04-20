@@ -22,33 +22,39 @@ public class ServiceChiTieu implements IServiceChiTieu {
     }
 
     @Override
-    public void add() {
-        System.out.println("nhap Ma chi tieu");
-        String maChiTieu = sc.nextLine();
-        System.out.println("nhap Ten chi tieu");
-        String tenChiTieu = sc.nextLine();
-        System.out.println("nhap ngay chi tieu");
-        String ngayChiTieu = sc.nextLine();
-        System.out.println("nhap so tien chi");
-        long soTienChi = Long.parseLong(sc.nextLine());
-        System.out.println("nhap mo ta them");
-        String moTaThem = sc.nextLine();
-        ChiTieu chiTieu = new ChiTieu(maChiTieu, tenChiTieu, ngayChiTieu, soTienChi, moTaThem);
-        if (repoChiTieu.add(chiTieu)) {
-            System.out.println("Them moi chi tieu thanh cong");
-        } else {
-            System.out.println("Them moi khong thanh cong");
-        }
+    public void add() throws UniqueIDException {
+            String maChiTieu = null;
+                System.out.println("nhap Ma chi tieu");
+                maChiTieu = sc.nextLine();
+                for (ChiTieu c : repoChiTieu.display()) {
+                    if (maChiTieu.equals(c.getMaChiTieu())) {
+                        throw new UniqueIDException("Ma da trung lap");
+                    }
+                }
+            System.out.println("nhap Ten chi tieu");
+            String tenChiTieu = sc.nextLine();
+            System.out.println("nhap ngay chi tieu");
+            String ngayChiTieu = sc.nextLine();
+            System.out.println("nhap so tien chi");
+            long soTienChi = Long.parseLong(sc.nextLine());
+            System.out.println("nhap mo ta them");
+            String moTaThem = sc.nextLine();
+            ChiTieu chiTieu = new ChiTieu(maChiTieu, tenChiTieu, ngayChiTieu, soTienChi, moTaThem);
+            if (repoChiTieu.add(chiTieu)) {
+                System.out.println("Them moi chi tieu thanh cong");
+            } else {
+                System.out.println("Them moi khong thanh cong");
+            }
     }
 
     @Override
-    public void delete() {
+    public void delete() throws IdNotFoundException{
         System.out.println("nhap Ma chi tieu muon xoa");
         String maChiTieu = sc.nextLine();
         if (repoChiTieu.delete(maChiTieu)) {
             System.out.println("Xoa thanh cong ");
         } else {
-            System.out.println("Khong tim thay doi tuong muon xoa");
+            throw new IdNotFoundException("ID khong tai, moi nhap lai");
         }
     }
 
