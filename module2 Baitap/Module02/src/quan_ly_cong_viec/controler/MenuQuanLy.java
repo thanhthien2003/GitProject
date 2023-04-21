@@ -35,6 +35,7 @@ public class MenuQuanLy {
                     do {
                         try {
                             serviceChiTieu.add();
+                            flag2=true;
                         } catch (UniqueIDException e) {
                             System.out.println(e);
                             flag2 = false;
@@ -47,6 +48,7 @@ public class MenuQuanLy {
                     do {
                         try {
                             serviceChiTieu.delete();
+                            flag1 = true;
                         } catch (IdNotFoundException e) {
                             flag1 = false;
                             System.out.println(e);

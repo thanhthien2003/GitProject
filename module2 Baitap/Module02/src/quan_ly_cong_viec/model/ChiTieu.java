@@ -1,6 +1,6 @@
 package quan_ly_cong_viec.model;
 
-public class ChiTieu implements Comparable<ChiTieu>{
+public class ChiTieu implements Comparable<ChiTieu> {
     private String maChiTieu;
     private String tenChiTieu;
     private String ngayChiTieu;
@@ -67,6 +67,10 @@ public class ChiTieu implements Comparable<ChiTieu>{
                 ", soTienChi=" + soTienChi +
                 ", moTaThem='" + moTaThem + '\'' +
                 '}';
+    }
+
+    public String getInforFileCSV() {
+        return maChiTieu + "," + tenChiTieu + "," + ngayChiTieu + "," + soTienChi + "," + maChiTieu;
     }
 
     @Override

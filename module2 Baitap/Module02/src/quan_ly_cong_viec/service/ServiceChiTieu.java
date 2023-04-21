@@ -12,7 +12,7 @@ import java.util.Scanner;
 
 public class ServiceChiTieu implements IServiceChiTieu {
     static Scanner sc = new Scanner(System.in);
-    IRepoChiTieu repoChiTieu = new RepoChiTieu();
+ static IRepoChiTieu repoChiTieu = new RepoChiTieu();
 
     @Override
     public void display() {
