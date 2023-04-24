@@ -3,15 +3,14 @@ package quan_ly_cong_viec.util;
 import quan_ly_cong_viec.model.ChiTieu;
 
 import java.io.*;
-import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
 
 public class ReadAndWrite {
-    static private final String PATH_FILE = "src\\quan_ly_cong_viec\\data\\data.csv";
+    static private final String PATH_FILE_DATA = "src\\quan_ly_cong_viec\\data\\data.csv";
     public static List<ChiTieu> readFile(){
         List<ChiTieu> chiTieuList = new ArrayList<>();
-        File file  = new File(PATH_FILE);
+        File file  = new File(PATH_FILE_DATA);
         FileReader fileReader = null;
         BufferedReader bufferedReader = null;
         try {
@@ -39,7 +38,7 @@ public class ReadAndWrite {
     }
 
     public static void writeFile(List<ChiTieu>chiTieuList,boolean append){
-            File file = new File(PATH_FILE);
+            File file = new File(PATH_FILE_DATA);
             FileWriter fileWriter = null;
             BufferedWriter bufferedWriter= null;
         try {
