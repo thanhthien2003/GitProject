@@ -4,12 +4,13 @@ import quan_ly_cong_viec.model.ChiTieu;
 import quan_ly_cong_viec.service.IServiceChiTieu;
 import quan_ly_cong_viec.service.ServiceChiTieu;
 import quan_ly_cong_viec.util.ReadAndWrite;
+import quan_ly_cong_viec.util.ReadAndWriteBinary;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class RepoChiTieu implements IRepoChiTieu {
-    static List<ChiTieu> chiTieuList = ReadAndWrite.readFile();
+     List<ChiTieu> chiTieuList = ReadAndWriteBinary.readFileBinary();
 
 
 //    static {
@@ -25,13 +26,13 @@ public class RepoChiTieu implements IRepoChiTieu {
 
     @Override
     public List<ChiTieu> display() {
-        return ReadAndWrite.readFile();
+        return ReadAndWriteBinary.readFileBinary();
     }
 
     @Override
     public boolean add(ChiTieu chiTieu) {
         chiTieuList.add(chiTieu);
-        ReadAndWrite.writeFile(chiTieuList,false);
+        ReadAndWriteBinary.writeFileBinary(chiTieuList);
         return true;
     }
 
@@ -45,7 +46,7 @@ public class RepoChiTieu implements IRepoChiTieu {
                 break;
             }
         }
-        ReadAndWrite.writeFile(chiTieuList,false);
+        ReadAndWriteBinary.writeFileBinary(chiTieuList);
         return flag;
     }
 
@@ -54,7 +55,7 @@ public class RepoChiTieu implements IRepoChiTieu {
         for (int i = 0; i < chiTieuList.size(); i++) {
             if (chiTieuList.get(i).getMaChiTieu().equals(chiTieu.getMaChiTieu())){
                 chiTieuList.set(i,chiTieu);
-                ReadAndWrite.writeFile(chiTieuList,false);
+                ReadAndWriteBinary.writeFileBinary(chiTieuList);
                 return true;
         }
         }

@@ -28,7 +28,7 @@ public class Main {
                     break;
                 case 3:
                     System.out.println("Find product");
-                    serviceProduct.find();
+                    serviceProduct.edit();
                     break;
                 default:
                     flag = false;

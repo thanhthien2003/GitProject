@@ -1,7 +1,6 @@
 package quan_ly_cong_viec.service;
 
 import quan_ly_cong_viec.model.ChiTieu;
-import quan_ly_cong_viec.repository.IRepoChiTieu;
 import quan_ly_cong_viec.repository.RepoChiTieu;
 import quan_ly_cong_viec.util.SortChiTieuComparator;
 
@@ -12,7 +11,7 @@ import java.util.Scanner;
 
 public class ServiceChiTieu implements IServiceChiTieu {
     static Scanner sc = new Scanner(System.in);
- static IRepoChiTieu repoChiTieu = new RepoChiTieu();
+     RepoChiTieu repoChiTieu = new RepoChiTieu();
 
     @Override
     public void display() {

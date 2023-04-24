@@ -40,4 +40,16 @@ public class ServiceProduct implements IServiceProduct {
         String name = sc.nextLine();
         productRepository.findProduct(name.trim());
     }
+
+    @Override
+    public void edit() {
+//        id, String name, float price, String placeProduct, String description
+        int id = Integer.parseInt(sc.nextLine());
+        String stringName = sc.nextLine();
+        float price = Float.parseFloat(sc.nextLine());
+        String placeProduct = sc.nextLine();
+        String description = sc.nextLine();
+        Product product = new Product(id,stringName,price,placeProduct,description);
+        productRepository.edit(product);
+    }
 }

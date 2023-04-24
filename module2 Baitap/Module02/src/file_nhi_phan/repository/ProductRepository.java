@@ -37,4 +37,15 @@ public class ProductRepository implements IProductRepository {
             System.out.println("Not found");
         }
     }
+
+    @Override
+    public void edit(Product product) {
+        List<Product> productList = ReadAndWrite.readFile(PATH_FILE);
+        for (int i = 0; i < productList.size(); i++) {
+            if (productList.get(i).getId() == product.getId()) {
+                productList.set(i, product);
+                ReadAndWrite.writeFile(PATH_FILE, productList);
+            }
+        }
+    }
 }

@@ -1,6 +1,8 @@
 package quan_ly_cong_viec.model;
 
-public class ChiTieu implements Comparable<ChiTieu> {
+import java.io.Serializable;
+
+public class ChiTieu implements Serializable,Comparable<ChiTieu>  {
     private String maChiTieu;
     private String tenChiTieu;
     private String ngayChiTieu;
