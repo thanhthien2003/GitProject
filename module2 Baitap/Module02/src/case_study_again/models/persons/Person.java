@@ -1,18 +1,18 @@
 package case_study_again.models.persons;
 
 public abstract class Person {
-    protected int id;
+    protected String id;
     protected String name;
     protected String date;
     protected String gender;
-    protected int idCountry;
-    protected int phoneNumber;
+    protected String idCountry;
+    protected String phoneNumber;
     protected String email;
 
     public Person() {
     }
 
-    public Person(int id, String name, String date, String gender, int idCountry, int phoneNumber, String email) {
+    public Person(String id, String name, String date, String gender, String idCountry, String phoneNumber, String email) {
         this.id = id;
         this.name = name;
         this.date = date;
@@ -22,11 +22,11 @@ public abstract class Person {
         this.email = email;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -54,19 +54,19 @@ public abstract class Person {
         this.gender = gender;
     }
 
-    public int getIdCountry() {
+    public String getIdCountry() {
         return idCountry;
     }
 
-    public void setIdCountry(int idCountry) {
+    public void setIdCountry(String idCountry) {
         this.idCountry = idCountry;
     }
 
-    public int getPhoneNumber() {
+    public String getPhoneNumber() {
         return phoneNumber;
     }
 
-    public void setPhoneNumber(int phoneNumber) {
+    public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
 
