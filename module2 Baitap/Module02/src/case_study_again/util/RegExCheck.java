@@ -1,24 +1,24 @@
 package case_study_again.util;
 
-import javax.swing.text.DateFormatter;
-import java.text.DateFormat;
-import java.time.LocalDate;
-import java.time.LocalTime;
-import java.time.Period;
-import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.regex.Pattern;
 
-public class RegExEmployees {
-    private static String regExId ="^(NV-)[0-9]{4}$";
+public class RegExCheck {
+    private static String regExIdEmployee ="^(NV-)[0-9]{4}$";
+    private static String regExIdCustomer ="^(KH-)[0-9]{4}$";
     private static String regExName ="^([A-Z][a-z]+\\s)([A-Z][a-z]+)(\\s[A-Z][a-z]+)*$";
     private static String regExIdCountry = "^(\\d{9})|(\\d{12})$";
     private static String regExPhoneNumber = "^0\\d{9}$";
+
     public static boolean checkIdEmployees(String id) {
-        return Pattern.matches(regExId,id);
+        return Pattern.matches(regExIdEmployee,id);
     }
 
-    public static boolean checkNameEmployee(String name) {
+    public static boolean checkIdCustomer(String id) {
+        return Pattern.matches(regExIdCustomer, id);
+    }
+
+    public static boolean checkName(String name) {
         return Pattern.matches(regExName,name);
     }
 

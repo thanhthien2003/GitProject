@@ -7,5 +7,5 @@ import case_study_again.repository.IRepository;
 import java.util.List;
 
 public interface IEmployeeRepo extends IRepository<Employees> {
-    void edit(List<Employees> list);
+    void edit(Employees employeeUp,int i);
 }

@@ -5,5 +5,5 @@ import case_study_again.models.persons.Customers;
 import case_study_again.repository.IRepository;
 
 public interface ICustomerRepo extends IRepository<Customers> {
-    void edit();
+    void edit(Customers customer,int i);
 }

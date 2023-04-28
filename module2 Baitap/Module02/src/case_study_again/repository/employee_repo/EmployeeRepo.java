@@ -22,7 +22,13 @@ public class EmployeeRepo implements IEmployeeRepo{
     }
 
     @Override
-    public void edit(List<Employees> list) {
-        ReadAndWriteEmployee.writeFileEmployee(false,list);
+    public void edit(Employees employeeUp,int i) {
+        for (int j = 0; j < employeeList.size(); j++) {
+            if (j==i){
+                employeeList.set(j,employeeUp);
+                break;
+            }
+        }
+        ReadAndWriteEmployee.writeFileEmployee(false,employeeList);
     }
 }

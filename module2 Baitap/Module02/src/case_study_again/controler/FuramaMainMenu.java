@@ -65,11 +65,10 @@ public class FuramaMainMenu {
     }
 
     public static void displayEmployee() {
-
+        System.out.println("--YOU CHOOSE EMPLOYEES--");
         boolean flag = true;
         do {
-            System.out.println("YOU CHOOSE EMPLOYEES" +
-                    "\n 1.Display list employees" +
+            System.out.println(" 1.Display list employees" +
                     "\n 2.Add new employee" +
                     "\n 3.Edit employee" +
                     "\n 4.Return main menu");
@@ -97,9 +96,9 @@ public class FuramaMainMenu {
     public static void displayCustomer() {
 
         boolean flag = true;
+        System.out.println("--YOU CHOOSE CUSTOMER--");
         do {
-            System.out.println("YOU CHOOSE CUSTOMER" +
-                    "\n1.Display list customer" +
+            System.out.println("1.Display list customer" +
                     "\n 2.Add new customer" +
                     "\n 3.Edit customer" +
                     "\n 4.Return main menu");

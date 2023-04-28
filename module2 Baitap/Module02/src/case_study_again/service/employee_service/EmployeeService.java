@@ -3,8 +3,7 @@ package case_study_again.service.employee_service;
 import case_study_again.models.persons.Employees;
 import case_study_again.repository.employee_repo.EmployeeRepo;
 import case_study_again.repository.employee_repo.IEmployeeRepo;
-import case_study_again.util.RegExEmployees;
-import regex_lam_lai.CheckRegEx;
+import case_study_again.util.RegExCheck;
 
 import java.util.List;
 import java.util.Scanner;
@@ -28,11 +27,13 @@ public class EmployeeService implements IEmployeeService {
 
     @Override
     public void edit() {
-        System.out.print("Enter your id you want edit");
+        System.out.print("Enter your id you want edit: ");
         String id = sc.nextLine();
         List<Employees> employeesList = employeeRepo.display();
+        int count =0;
         for (int i = 0; i < employeesList.size(); i++) {
             if (id.equals(employeesList.get(i).getId())) {
+                count++;
                 Employees employeesUp = employeesList.get(i);
                 boolean append;
                 do {
@@ -45,7 +46,7 @@ public class EmployeeService implements IEmployeeService {
                             "\n 5. PhoneNumber" +
                             "\n 6. Email" +
                             "\n 7. Lever" +
-                            "\n 8. Address" +
+                            "\n 8. Position" +
                             "\n 9. Wage");
                     String choose = sc.nextLine();
                     boolean flag = true;
@@ -55,7 +56,7 @@ public class EmployeeService implements IEmployeeService {
                             do {
                                 System.out.print("Enter name edit:");
                                 name = sc.nextLine();
-                                if (RegExEmployees.checkNameEmployee(name)) {
+                                if (RegExCheck.checkName(name)) {
                                     flag = false;
                                 } else {
                                     System.out.println("Please re-enter, maybe you forgot UpperCase a firts key ");
@@ -63,19 +64,21 @@ public class EmployeeService implements IEmployeeService {
                                 }
                             } while (flag);
                             employeesUp.setName(name);
+                            append = false;
                             break;
                         case "2":
                             String date = null;
                             do {
                                 System.out.print("Enter date edit:");
                                 date = sc.nextLine();
-                                if (RegExEmployees.checkDate(date)) {
+                                if (RegExCheck.checkDate(date)) {
                                     flag = false;
                                 } else {
                                     flag = true;
                                 }
                             } while (flag);
                             employeesUp.setDate(date);
+                            append = false;
                             break;
                         case "3":
                             String gender = null;
@@ -100,13 +103,14 @@ public class EmployeeService implements IEmployeeService {
                                 }
                             } while (flag);
                             employeesUp.setGender(gender);
+                            append = false;
                             break;
                         case "4":
                             String idCountry = null;
                             do {
                                 System.out.print("Enter your IdCountry edit:");
                                 idCountry = sc.nextLine();
-                                if (RegExEmployees.checkIdCountry(idCountry)) {
+                                if (RegExCheck.checkIdCountry(idCountry)) {
                                     flag = false;
                                 } else {
                                     System.out.println("Your enter wrong , please re-enter");
@@ -114,13 +118,14 @@ public class EmployeeService implements IEmployeeService {
                                 }
                             } while (flag);
                             employeesUp.setIdCountry(idCountry);
+                            append = false;
                             break;
                         case "5":
                             String phoneNumber = null;
                             do {
                                 System.out.print("Enter your phone number edit:");
                                 phoneNumber = sc.nextLine();
-                                if (RegExEmployees.checkPhoneNumber(phoneNumber)) {
+                                if (RegExCheck.checkPhoneNumber(phoneNumber)) {
                                     flag = false;
                                 } else {
                                     System.out.println("Your enter wrong , please re-enter with format: 0XXXXXXXXX");
@@ -128,11 +133,13 @@ public class EmployeeService implements IEmployeeService {
                                 }
                             } while (flag);
                             employeesUp.setPhoneNumber(phoneNumber);
+                            append = false;
                             break;
                         case "6":
                             System.out.print("Enter your email edit : ");
                             String email = sc.nextLine();
                             employeesUp.setEmail(email);
+                            append = false;
                             break;
                         case "7":
                             String lever = null;
@@ -166,6 +173,7 @@ public class EmployeeService implements IEmployeeService {
                                 }
                             } while (flag);
                             employeesUp.setLever(lever);
+                            append = false;
                             break;
                         case "8":
                             String position = null;
@@ -210,11 +218,22 @@ public class EmployeeService implements IEmployeeService {
                                 }
                             } while (flag);
                             employeesUp.setPosition(position);
+                            append = false;
                             break;
                         case "9":
-                            System.out.print("Enter your wage: ");
-                            float wage = Float.parseFloat(sc.nextLine());
+                            float wage = 0;
+                            do {
+                                try {
+                                    System.out.print("Enter your wage: ");
+                                    wage = Float.parseFloat(sc.nextLine());
+                                    flag = false;
+                                } catch (Exception e) {
+                                    flag = true;
+                                    System.out.println("Just number please re-enter");
+                                }
+                            } while (flag);
                             employeesUp.setWage(wage);
+                            append = false;
                             break;
                         default:
                             append = true;
@@ -222,12 +241,12 @@ public class EmployeeService implements IEmployeeService {
                             break;
                     }
                 }while (append);
-                employeesList.set(i,employeesUp);
-                employeeRepo.edit(employeesList);
+                employeeRepo.edit(employeesUp,i);
                 break;
-            } else {
-                System.out.println("Your enter id not exist");
             }
+        }
+        if (count==0){
+            System.out.println("Your id not exist");
         }
     }
 
@@ -239,7 +258,7 @@ public class EmployeeService implements IEmployeeService {
         do {
             System.out.print("Enter id:");
             id = sc.nextLine();
-            if (RegExEmployees.checkIdEmployees(id)) {
+            if (RegExCheck.checkIdEmployees(id)) {
                 flag = false;
             } else {
                 System.out.println("Please enter correct format:: NV-YYYY ( Y : 0-9)");
@@ -250,7 +269,7 @@ public class EmployeeService implements IEmployeeService {
         do {
             System.out.print("Enter name:");
             name = sc.nextLine();
-            if (RegExEmployees.checkNameEmployee(name)) {
+            if (RegExCheck.checkName(name)) {
                 flag = false;
             } else {
                 System.out.println("Please re-enter, maybe you forgot UpperCase a firts key ");
@@ -261,7 +280,7 @@ public class EmployeeService implements IEmployeeService {
         do {
             System.out.print("Enter date:");
             date = sc.nextLine();
-            if (RegExEmployees.checkDate(date)) {
+            if (RegExCheck.checkDate(date)) {
                 flag = false;
             } else {
                 flag = true;
@@ -292,7 +311,7 @@ public class EmployeeService implements IEmployeeService {
         do {
             System.out.print("Enter your IdCountry:");
             idCountry = sc.nextLine();
-            if (RegExEmployees.checkIdCountry(idCountry)) {
+            if (RegExCheck.checkIdCountry(idCountry)) {
                 flag = false;
             } else {
                 System.out.println("Your enter wrong , please re-enter");
@@ -303,7 +322,7 @@ public class EmployeeService implements IEmployeeService {
         do {
             System.out.print("Enter your phone number:");
             phoneNumber = sc.nextLine();
-            if (RegExEmployees.checkPhoneNumber(phoneNumber)) {
+            if (RegExCheck.checkPhoneNumber(phoneNumber)) {
                 flag = false;
             } else {
                 System.out.println("Your enter wrong , please re-enter with format: 0XXXXXXXXX");
