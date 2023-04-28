@@ -4,6 +4,8 @@ import case_study.models.person.Employee;
 import case_study_again.models.persons.Employees;
 import case_study_again.repository.IRepository;
 
+import java.util.List;
+
 public interface IEmployeeRepo extends IRepository<Employees> {
-    void edit();
+    void edit(List<Employees> list);
 }
