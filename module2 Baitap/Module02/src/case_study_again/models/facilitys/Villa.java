@@ -1,5 +1,7 @@
 package case_study_again.models.facilitys;
 
+import java.util.Objects;
+
 public class Villa extends Facility{
     private float areaPool;
     private int floor;
@@ -41,20 +43,33 @@ public class Villa extends Facility{
     @Override
     public String toString() {
         return "Villa{" +
-                "areaPool=" + areaPool +
-                ", floor=" + floor +
+                "serviceName=" + serviceName +
+                ",areaUse=" + areaUse +
+                ", price='" + price + '\'' +
+                ", maxHuman='" + maxHuman + '\'' +
+                ", styleRent=" +styleRent+
+                ", idService=" + idService +
+                ", areaPool=" + areaPool +
+                ", floor='" + floor + '\'' +
                 ", roomStandard='" + roomStandard + '\'' +
-                ", serviceName='" + serviceName + '\'' +
-                ", areaUse=" + areaUse +
-                ", price=" + price +
-                ", maxHuman=" + maxHuman +
-                ", styleRent='" + styleRent + '\'' +
-                ", idService='" + idService + '\'' +
                 '}';
     }
 
     public String getInforVilla(){
         return serviceName +"," + areaUse +"," + price +"," + maxHuman +"," + styleRent+"," + idService+"," + areaPool+
                 "," + floor+"," + roomStandard;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Villa villa = (Villa) o;
+        return this.idService.equals(villa.idService);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(areaPool, floor, roomStandard);
     }
 }

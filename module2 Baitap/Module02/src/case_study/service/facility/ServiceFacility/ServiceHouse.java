@@ -54,7 +54,7 @@ public class ServiceHouse implements IHouse{
                 System.out.println("the maximum number of people must be greater than 0 and less than 20");
             }
         } while (!flag);
-        System.out.println("enter rental type\n");
+        System.out.print("enter rental type: ");
         String styleRent = sc.nextLine();
         String idService;
         do {

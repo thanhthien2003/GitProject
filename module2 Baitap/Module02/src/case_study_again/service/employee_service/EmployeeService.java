@@ -371,29 +371,29 @@ public class EmployeeService implements IEmployeeService {
                     "5. Manager\n" +
                     "6. Administrator\n" +
                     "Enter your choice: ");
-            int option = Integer.parseInt(sc.nextLine());
+            String  option = sc.nextLine();
             switch (option) {
-                case 1:
+                case "1":
                     position = "RECEPTIONIST";
                     flag = false;
                     break;
-                case 2:
+                case "2":
                     position = "SERVER";
                     flag = false;
                     break;
-                case 3:
+                case "3":
                     position = "EXPERT";
                     flag = false;
                     break;
-                case 4:
+                case "4":
                     position = "MONITOR";
                     flag = false;
                     break;
-                case 5:
+                case "5":
                     position = "MANAGER";
                     flag = false;
                     break;
-                case 6:
+                case "7":
                     position = "ADMINISTRATOR";
                     flag = false;
                     break;

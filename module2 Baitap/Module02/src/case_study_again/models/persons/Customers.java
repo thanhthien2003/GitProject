@@ -33,14 +33,14 @@ public class Customers extends Person{
     @Override
     public String toString() {
         return "Customer{" + ", id=" + id + '\'' +
-                ", address='" + name + '\'' +
-                "typeCustomer='" + date +
-                ", name='" + gender + '\'' +
-                ", date='" + idCountry + '\'' +
-                ", gender='" + phoneNumber + '\'' +
-                ", idCountry=" + email +
-                ", phoneNumber=" + typeCustomer +
-                ", email='" + address + '\'' +
+                ", name='" + name + '\'' +
+                " , date ='" + date +
+                ", gender ='" + gender + '\'' +
+                ", idCountry ='" + idCountry + '\'' +
+                ", phoneNumber ='" + phoneNumber + '\'' +
+                ", email =" + email +
+                ", typeCustomer =" + typeCustomer +
+                ", address ='" + address + '\'' +
                 '}';
     }
 

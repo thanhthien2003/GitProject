@@ -1,5 +1,7 @@
 package case_study_again.models.facilitys;
 
+import java.util.Objects;
+
 public class House extends Facility{
     private int floor;
     private String roomStandard;
@@ -31,18 +33,31 @@ public class House extends Facility{
     @Override
     public String toString() {
         return "House{" +
-                "floor=" + floor +
-                ", roomStandard='" + roomStandard + '\'' +
-                ", serviceName='" + serviceName + '\'' +
-                ", areaUse=" + areaUse +
-                ", price=" + price +
+                "serviceName=" + serviceName +
+                ", areaUse='" + areaUse + '\'' +
+                ", price='" + price + '\'' +
                 ", maxHuman=" + maxHuman +
-                ", styleRent='" + styleRent + '\'' +
-                ", idService='" + idService + '\'' +
+                ", styleRent=" + styleRent +
+                ",idService=" + idService +
+                ", floor='" + floor + '\'' +
+                ", roomStandard='" + roomStandard+ '\'' +
                 '}';
     }
-    public String getInfoHouse(){
-        return serviceName + "," + areaUse + "," + price + "," + maxHuman + "," + styleRent + "," + idService + "," + floor + "," + roomStandard;
+    public String getInfoHouse() {
+        return serviceName + "," + areaUse + "," + price + "," + maxHuman + "," +
+                styleRent + "," + idService + "," + floor + "," + roomStandard;
+    }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        House house = (House) o;
+        return this.idService.equals(house.idService);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(floor, roomStandard);
     }
 }

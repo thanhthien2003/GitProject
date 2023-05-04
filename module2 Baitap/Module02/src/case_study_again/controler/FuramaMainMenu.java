@@ -138,7 +138,7 @@ public class FuramaMainMenu {
                     facilityService.display();
                     break;
                 case "2":
-                    facilityService.add();
+                    FacilityControler.addFacility();
                     break;
                 case "3":
                     facilityService.displayMaintenance();
