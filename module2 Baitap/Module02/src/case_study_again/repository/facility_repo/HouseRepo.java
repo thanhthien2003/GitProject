@@ -3,6 +3,7 @@ package case_study_again.repository.facility_repo;
 import case_study_again.models.facilitys.House;
 import case_study_again.models.facilitys.Villa;
 import case_study_again.util.ReadAndWriteHouse;
+import case_study_again.util.ReadAndWriteRoom;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -29,5 +30,11 @@ public class HouseRepo implements IHouseRepo{
             }
         }
         return houseMaintenanceMap;
+    }
+
+    @Override
+    public void updateValueHouse(House house, Integer value) {
+        houseMap.put(house,value);
+        ReadAndWriteHouse.writeFileHouse(houseMap,false);
     }
 }

@@ -1,85 +1,105 @@
 package case_study_again.models;
 
-public class Booking {
-    private int idBooking;
-    private int dayStart;
-    private int dayEnd;
-    private int idCustomer;
-    private String nameService;
-    private String styleService;
+import java.util.Objects;
+
+public class Booking implements Comparable{
+    private String idBooking;
+    private String dayBooking;
+    private String dayStart;
+    private String dayEnd;
+    private String idCustomer;
+    private String idService;
 
     public Booking() {
     }
 
-    public Booking(int idBooking, int dayStart, int dayEnd, int idCustomer, String nameService, String styleService) {
+    public Booking(String idBooking, String dayBooking, String dayStart, String dayEnd, String idCustomer, String idService) {
         this.idBooking = idBooking;
+        this.dayBooking = dayBooking;
         this.dayStart = dayStart;
         this.dayEnd = dayEnd;
         this.idCustomer = idCustomer;
-        this.nameService = nameService;
-        this.styleService = styleService;
+        this.idService = idService;
     }
 
-    public int getIdBooking() {
+    public String getIdBooking() {
         return idBooking;
     }
 
-    public void setIdBooking(int idBooking) {
+    public void setIdBooking(String idBooking) {
         this.idBooking = idBooking;
     }
 
-    public int getDayStart() {
+    public String getDayBooking() {
+        return dayBooking;
+    }
+
+    public void setDayBooking(String dayBooking) {
+        this.dayBooking = dayBooking;
+    }
+
+    public String getDayStart() {
         return dayStart;
     }
 
-    public void setDayStart(int dayStart) {
+    public void setDayStart(String dayStart) {
         this.dayStart = dayStart;
     }
 
-    public int getDayEnd() {
+    public String getDayEnd() {
         return dayEnd;
     }
 
-    public void setDayEnd(int dayEnd) {
+    public void setDayEnd(String dayEnd) {
         this.dayEnd = dayEnd;
     }
 
-    public int getIdCustomer() {
+    public String getIdCustomer() {
         return idCustomer;
     }
 
-    public void setIdCustomer(int idCustomer) {
+    public void setIdCustomer(String idCustomer) {
         this.idCustomer = idCustomer;
     }
 
-    public String getNameService() {
-        return nameService;
+    public String getIdService() {
+        return idService;
     }
 
-    public void setNameService(String nameService) {
-        this.nameService = nameService;
-    }
-
-    public String getStyleService() {
-        return styleService;
-    }
-
-    public void setStyleService(String styleService) {
-        this.styleService = styleService;
+    public void setIdService(String idService) {
+        this.idService = idService;
     }
 
     @Override
     public String toString() {
         return "Booking{" +
-                "idBooking=" + idBooking +
-                ", dayStart=" + dayStart +
-                ", dayEnd=" + dayEnd +
-                ", idCustomer=" + idCustomer +
-                ", nameService='" + nameService + '\'' +
-                ", styleService='" + styleService + '\'' +
+                "idBooking='" + idBooking + '\'' +
+                ", dayBooking='" + dayBooking + '\'' +
+                ", dayStart='" + dayStart + '\'' +
+                ", dayEnd='" + dayEnd + '\'' +
+                ", idCustomer='" + idCustomer + '\'' +
+                ", idService='" + idService + '\'' +
                 '}';
     }
-    public String getInforBooking(){
-        return idBooking + "," + dayStart + "," + dayEnd + "," + idCustomer + "," + nameService + "," + styleService;
+    public String getInforCSV(){
+        return idBooking + "," + dayBooking + "," + dayStart + "," + dayEnd + "," + idCustomer + "," + idService;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Booking booking = (Booking) o;
+        return Objects.equals(idBooking, booking.idBooking) && Objects.equals(dayBooking, booking.dayBooking) && Objects.equals(dayStart, booking.dayStart) && Objects.equals(dayEnd, booking.dayEnd) && Objects.equals(idCustomer, booking.idCustomer) && Objects.equals(idService, booking.idService);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(idBooking, dayBooking, dayStart, dayEnd, idCustomer, idService);
+    }
+
+    @Override
+    public int compareTo(Object o) {
+        return this.idBooking.compareTo(((Booking)o).idBooking);
     }
 }

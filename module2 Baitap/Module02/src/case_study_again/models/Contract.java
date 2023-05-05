@@ -1,71 +1,63 @@
 package case_study_again.models;
 
 public class Contract {
-    private int idContract;
-    private int idBooking;
-    private float depositsStart;
-    private float getDepositsEnd;
-    private int idCustomer;
+    private String idContract;
+    private String idBooking;
+    private long  depositsStart;
+    private long  getDepositsEnd;
 
     public Contract() {
     }
 
-    public Contract(int idContract, int idBooking, float depositsStart, float getDepositsEnd, int idCustomer) {
+    public Contract(String idContract, String idBooking, long depositsStart, long getDepositsEnd) {
         this.idContract = idContract;
         this.idBooking = idBooking;
         this.depositsStart = depositsStart;
         this.getDepositsEnd = getDepositsEnd;
-        this.idCustomer = idCustomer;
     }
 
-    public int getIdContract() {
+    public String getIdContract() {
         return idContract;
     }
 
-    public void setIdContract(int idContract) {
+    public void setIdContract(String idContract) {
         this.idContract = idContract;
     }
 
-    public int getIdBooking() {
+    public String getIdBooking() {
         return idBooking;
     }
 
-    public void setIdBooking(int idBooking) {
+    public void setIdBooking(String idBooking) {
         this.idBooking = idBooking;
     }
 
-    public float getDepositsStart() {
+    public long getDepositsStart() {
         return depositsStart;
     }
 
-    public void setDepositsStart(float depositsStart) {
+    public void setDepositsStart(long depositsStart) {
         this.depositsStart = depositsStart;
     }
 
-    public float getGetDepositsEnd() {
+    public long getGetDepositsEnd() {
         return getDepositsEnd;
     }
 
-    public void setGetDepositsEnd(float getDepositsEnd) {
+    public void setGetDepositsEnd(long getDepositsEnd) {
         this.getDepositsEnd = getDepositsEnd;
-    }
-
-    public int getIdCustomer() {
-        return idCustomer;
-    }
-
-    public void setIdCustomer(int idCustomer) {
-        this.idCustomer = idCustomer;
     }
 
     @Override
     public String toString() {
         return "Contract{" +
-                "idContract=" + idContract +
-                ", idBooking=" + idBooking +
+                "idContract='" + idContract + '\'' +
+                ", idBooking='" + idBooking + '\'' +
                 ", depositsStart=" + depositsStart +
                 ", getDepositsEnd=" + getDepositsEnd +
-                ", idCustomer=" + idCustomer +
                 '}';
+    }
+    public String getInforToCSV(){
+        return idContract+","+idBooking+","+depositsStart+","+getDepositsEnd;
     }
 }

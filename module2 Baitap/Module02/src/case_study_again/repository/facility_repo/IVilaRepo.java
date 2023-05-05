@@ -8,4 +8,5 @@ public interface IVilaRepo {
     Map<Villa,Integer> displayVila();
     void add(Villa villa,int value);
     Map<Villa,Integer> displayMaintenance();
+    void updateValueVilla(Villa villa,Integer value);
 }

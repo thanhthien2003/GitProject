@@ -2,6 +2,7 @@ package case_study_again.repository.facility_repo;
 
 import case_study.models.facility.Facility;
 import case_study_again.models.facilitys.Villa;
+import case_study_again.util.ReadAndWriteBooking;
 import case_study_again.util.ReadAndWriteVila;
 
 import java.util.HashMap;
@@ -30,5 +31,9 @@ public class VilaRepo implements IVilaRepo{
             }
         }
         return villaMaintenanceMap;
+    }
+    public void updateValueVilla(Villa villa,Integer value){
+        villaIntegerMap.put(villa,value);
+        ReadAndWriteVila.writeFileVilla(villaIntegerMap,false);
     }
 }

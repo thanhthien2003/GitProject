@@ -30,4 +30,10 @@ public class RoomRepo implements IRoomRepo{
         }
         return roomMaintenanceMap;
     }
+
+    @Override
+    public void updateValueRoom(Room room, Integer value) {
+        roomIntegerMap.put(room,value);
+        ReadAndWriteRoom.writeFileRoom(roomIntegerMap,false);
+    }
 }

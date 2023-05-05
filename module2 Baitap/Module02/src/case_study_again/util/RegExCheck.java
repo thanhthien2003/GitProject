@@ -9,6 +9,7 @@ public class RegExCheck {
     private static String regExName ="^([A-Z][a-z]+\\s)([A-Z][a-z]+)(\\s[A-Z][a-z]+)*$";
     private static String regExIdCountry = "^(\\d{9})|(\\d{12})$";
     private static String regExPhoneNumber = "^0\\d{9}$";
+    private static String regExDayTime = "^(((0[1-9])|[12][0-9])|3[01])\\/((0[1-9])|1[0-2])\\/(2((0[0-9][0-9])|[1-9][0-9][0-9]))$";
 
     public static boolean checkIdEmployees(String id) {
         return Pattern.matches(regExIdEmployee,id);
@@ -51,4 +52,8 @@ public class RegExCheck {
     public static boolean checkPhoneNumber(String phoneNumber) {
         return Pattern.matches(regExPhoneNumber,phoneNumber);
     }
+    public static boolean checkDay(String day){
+        return Pattern.matches(regExDayTime,day);
+    }
+
 }
