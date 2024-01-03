@@ -1,7 +1,5 @@
 package bai_2;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class Bai2 {
@@ -46,6 +44,4 @@ public class Bai2 {
             return max;
         }
     }
-
-
 }
